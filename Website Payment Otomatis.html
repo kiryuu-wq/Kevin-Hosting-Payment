@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webpayment Otomatis</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 1.5rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product button {
+      margin-top: 10px;
+      padding: 0.5rem 1rem;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .cart {
+      background: white;
+      margin-top: 2rem;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .cart h3 {
+      margin-top: 0;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .cart-item button {
+      background: red;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+
+    .payment {
+      margin-top: 2rem;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .payment-methods img {
+      width: 80px;
+      margin-right: 10px;
+    }
+
+    .qris-container {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .qris-container img {
+      width: 200px;
+    }
+
+    .copy-btn {
+      margin-top: 10px;
+      padding: 6px 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .whatsapp {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .whatsapp a {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>Kiryuu Shop Official</header>
+
+  <div class="container">
+    <div class="products">
+      <div class="product">
+        <img src="https://img1.pixhost.to/images/6221/607083074_imgtmp.jpg" alt="Website Payment Button">
+        <h4>Website Payment Button</h4>
+        <p>Rp10.000</p>
+        <button onclick="addToCart('Website Payment Button', 10000)">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <img src="https://img1.pixhost.to/images/6222/607085991_imgtmp.jpg" alt="Website Payment Button 2">
+        <h4>Website Payment Button 2</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 2', 8000)">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <img 
+src="https://img1.pixhost.to/images/6224/607117263_imgtmp.jpg" alt="Website Payment Button 3">
+        <h4>Website Payment Button 3</h4>
+        <p>Rp5.000</p>
+        <button onclick="addToCart('Website Payment Button 3', 5000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6225/607125462_imgtmp.jpg" alt="Website Payment Button 4">
+        <h4>Website Payment Button 4</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 4',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://files.catbox.moe/epdbqw.jpg" alt="Website Payment Button 5">
+        <h4>Website Payment Button 5</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 5',5000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6236/607258231_imgtmp.jpg" alt="Website Payment Button 6">
+        <h4>Website Payment Button 6</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 6',6000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6236/607258398_imgtmp.jpg" alt="Website Payment Button 7">
+        <h4>Website Payment Button 7</h4>
+        <p>Rp7.000</p>
+        <button onclick="addToCart('Website Payment Button 7',7000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6236/607261090_imgtmp.jpg" alt="Website Payment Button 4">
+        <h4>Website Payment Button 8</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 8',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6237/607261512_imgtmp.jpg" alt="Website Payment Button 4">
+        <h4>Website Payment Button 9</h4>
+        <p>Rp5.000</p>
+        <button onclick="addToCart('Website Payment Button 9',5000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6237/607263094_imgtmp.jpg" alt="Website Payment Button 10">
+        <h4>Website Payment Button 10</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 10',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6237/607264440_imgtmp.jpg" alt="Website Payment Button 11">
+        <h4>Website Payment Button 11</h4>
+        <p>Rp7.000</p>
+        <button onclick="addToCart('Website Payment Button 11',7000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6237/607264655_imgtmp.jpg" alt="Website Payment Button 12">
+        <h4>Website Payment Button 12</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 12',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6297/608017829_imgtmp.jpg" alt="Website Payment Button 13">
+        <h4>Website Payment Button 13</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 13',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6298/608026057_imgtmp.jpg" alt="Website Payment Button 14">
+        <h4>Website Payment Button 14</h4>
+        <p>Rp7.000</p>
+        <button onclick="addToCart('Website Payment Button 14',7000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6298/608027095_imgtmp.jpg" alt="Website Payment Button 15">
+        <h4>Website Payment Button 15</h4>
+        <p>Rp6.000</p>
+        <button onclick="addToCart('Website Payment Button 15',6000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6298/608027359_imgtmp.jpg" alt="Website Payment Button 16">
+        <h4>Website Payment Button 16</h4>
+        <p>Rp7.000</p>
+        <button onclick="addToCart('Website Payment Button 16',7000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6298/608027621_imgtmp.jpg" alt="Website Payment Button 17">
+        <h4>Website Payment Button 17</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 17',7000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6298/608028027_imgtmp.jpg" alt="Website Payment Button 18">
+        <h4>Website Payment Button 18</h4>
+        <p>Rp7.000</p>
+        <button onclick="addToCart('Website Payment Button 18',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6298/608028278_imgtmp.jpg" alt="Website Payment Button 19">
+        <h4>Website Payment Button 19</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 19',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6298/608028525_imgtmp.jpg" alt="Website Payment Button 20">
+        <h4>Website Payment Button 20</h4>
+        <p>Rp7.000</p>
+        <button onclick="addToCart('Website Payment Button 20',7000)">Tambah Ke Keranjang</button>
+    </div>
+    
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6306/608146216_imgtmp.jpg" alt="Website Payment Button 12">
+        <h4>Website Payment Button 21</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 21',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6306/608146664_imgtmp.jpg" alt="Website Payment Button 22">
+        <h4>Website Payment Button 22</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 22',8000)">Tambah Ke Keranjang</button>
+    </div>
+    
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6306/608146936_imgtmp.jpg" alt="Website Payment Button 23">
+        <h4>Website Payment Button 23</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 23',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6306/608147290_imgtmp.jpg" alt="Website Payment Button 24">
+        <h4>Website Payment Button 24</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 24',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6306/608147550_imgtmp.jpg" alt="Website Payment Button 25">
+        <h4>Website Payment Button 25</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 25',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6306/608147751_imgtmp.jpg" alt="Website Payment Button 26">
+        <h4>Website Payment Button 26</h4>
+        <p>Rp8.000</p>
+        <button onclick="addToCart('Website Payment Button 26',8000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6306/608148178_imgtmp.jpg" alt="Website Payment Button 27">
+        <h4>Website Payment Button 27</h4>
+        <p>Rp7.000</p>
+        <button onclick="addToCart('Website Payment Button 27',7000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6306/608148425_imgtmp.jpg" alt="Website Payment Button 28">
+        <h4>Website Payment Button 28</h4>
+        <p>Rp6.000</p>
+        <button onclick="addToCart('Website Payment Button 28',6000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6306/608148696_imgtmp.jpg" alt="Website Payment Button 29">
+        <h4>Website Payment Button 29</h4>
+        <p>Rp7.000</p>
+        <button onclick="addToCart('Website Payment Button 29',7000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6306/608149814_imgtmp.jpg" alt="Website Payment Button 30">
+        <h4>Website Payment Button 30</h4>
+        <p>Rp7.000</p>
+        <button onclick="addToCart('Website Payment Button 30',7000)">Tambah Ke Keranjang</button>
+    </div>
+    <div class="product">
+        <img
+src="https://img1.pixhost.to/images/6307/608171679_imgtmp.jpg" alt="Website Payment Button 31">
+        <h4>Website Payment Button 31</h4>
+        <p>Rp10.000</p>
+        <button onclick="addToCart('Website Payment Button 31',10000)">Tambah Ke Keranjang</button>
+    </div>
+    
+    
+      <div class="cart" id="cart">
+      <h3>Keranjang</h3>
+      <div id="cart-items"></div>
+      <p><strong>Total: Rp<span id="total">0</span></strong></p>
+    </div>
+
+    <div class="payment">
+      <h3>Metode Pembayaran</h3>
+      <div class="payment-methods">
+        <p>Dana: <strong>62882015857798</strong></p>
+        <p>OVO: <strong>6283190336544</strong></p>
+        <p>Gopay: <strong>6283190336544</strong></p>
+      </div>
+
+      <div class="qris-container">
+        <h4>QRIS:</h4>
+        <img src="https://img1.pixhost.to/images/6286/607890005_imgtmp.jpg" alt="QRIS">
+
+    <div class="whatsapp">
+      <h3>Konfirmasi Pembayaran via WhatsApp</h3>
+      <a href="https://wa.me/6283170618607?text=Halo,%20saya%20sudah%20melakukan%20pembayaran%20" target="_blank">
+        Kirim Bukti Pembayaran
+      </a>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+    let total = 0;
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      const totalEl = document.getElementById("total");
+      cartItems.innerHTML = "";
+      total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        cartItems.innerHTML += `
+          <div class="cart-item">
+            <span>${item.name} - Rp${item.price}</span>
+            <button onclick="removeItem(${index})">×</button>
+          </div>
+        `;
+      });
+
+      totalEl.innerText = total.toLocaleString();
+    }
+
+ function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor QRIS disalin!");
+      });
+    }
+    
+    function sendToWhatsApp() {
+      const nomorWA = "6283170618607"; // ← ganti dengan nomor kamu
+      const message = encodeURIComponent("Pesanan saya:\n" + cart.join("\n") + "\n\nSaya telah melakukan pembayaran dan melampirkan bukti.");
+      const url = `https://wa.me/${nomorWA}?text=${message}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
